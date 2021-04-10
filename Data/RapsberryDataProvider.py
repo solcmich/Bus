@@ -62,18 +62,8 @@ class SenseHatDataProvider:
         """
         return self._get(self.sense_hat_storage, 'humidity')
 
-    def get_futures_trades(self, pair=None):
-        """
-        :return futures trades for given pair, or for every pair when pair is not specified
-        """
-        return self._get(self.futures_trades_storage, pair)
-
-
-    @staticmethod
-    def _get(storage, pair):
-        if pair is None:
-            return pd.concat([x.get() for x in storage.values()])
-        return storage[pair].get()
+    def _get(self, storage, pair):
+        pass
 
     def __run_sense_hat_storage(self):
         e = threading.Event()
@@ -87,6 +77,4 @@ class SenseHatDataProvider:
             s_humidity.append(self.sense_hat.get_humidity())
             time.sleep(10)
 
-        # todo: Handle initial load
-        # s.initial_load(self.client.get_historical_klines, symbol=p, interval=tf, start_str='1600000000000')
 

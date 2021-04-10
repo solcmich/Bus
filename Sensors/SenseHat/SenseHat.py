@@ -1,12 +1,11 @@
-#from sense_hat import SenseHat
+from sense_hat import SenseHat
 from datetime import datetime
 import pandas as pd
 
 
 class CSenseHat:
     def __init__(self):
-        #self.hat = SenseHat()
-        pass
+        self.hat = SenseHat()
 
     def _get(self, f):
         ret = pd.DataFrame()
@@ -15,8 +14,7 @@ class CSenseHat:
         return ret
 
     def get_temperature(self):
-        #return self._get(self.hat.get_temperature())
-        return self._get(31)
+        return self._get(self.hat.get_temperature())
 
     def get_accelerometer(self):
         return self._get(self.hat.get_accelerometer())
@@ -28,6 +26,5 @@ class CSenseHat:
         return self._get(self.hat.get_pressure())
 
     def get_humidity(self):
-        #return self._get(self.hat.get_humidity())
-        return self._get(31)
+        return self._get(self.hat.get_humidity())
 
