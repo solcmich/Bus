@@ -79,5 +79,6 @@ class GpsDataProvider(threading.Thread):
             ret['latitude'] = [self.gps.latitude]
             ret['longtitude'] = [self.gps.longitude]
             s_loc.append(ret)
+            time.sleep(1)
 
 
