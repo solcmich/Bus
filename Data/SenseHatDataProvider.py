@@ -15,8 +15,9 @@ hot update is triggered by some event from outside in order to maintain maximum 
 """
 
 
-class SenseHatDataProvider:
+class SenseHatDataProvider(threading.Thread):
     def __init__(self, root_storage_path):
+        super().__init__()
         self.sense_hat_storage = dict()
         self.gps_storage = dict()
 
@@ -72,7 +73,11 @@ class SenseHatDataProvider:
         dirname_humidity = os.path.join(self.root_storage_path, f'SenseHat/Humidity/data.csv')
         s_temperature = ColdStorage(dirname_temperature)
         s_humidity = ColdStorage(dirname_humidity)
+        i = 0
         while True:
+            i += 1
+            if i % 10 == 1:
+                print('Reading Sense hat')
             s_temperature.append(self.sense_hat.get_temperature())
             s_humidity.append(self.sense_hat.get_humidity())
             time.sleep(10)

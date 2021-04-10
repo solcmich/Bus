@@ -1,5 +1,9 @@
-from Data.RapsberryDataProvider import SenseHatDataProvider
-
+from Data.SenseHatDataProvider import SenseHatDataProvider
+from Data.GpsDataProvider import GpsDataProvider
 if __name__ == '__main__':
-    dp = SenseHatDataProvider('.')
-    dp.run()
+    sense = SenseHatDataProvider('.')
+    sense.run()
+    gps = GpsDataProvider('.')
+    gps.run()
+
+
