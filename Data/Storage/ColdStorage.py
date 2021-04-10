@@ -34,12 +34,12 @@ class ColdStorage(threading.Thread):
             f.close()
             frame = data
             if len(val) <= 1:
-                frame.to_csv(self.storage, index=False)
+                frame.to_csv(self.storage)
                 return
             else:
-                curr = pd.read_csv(self.storage, index_col='Date')
+                curr = pd.read_csv(self.storage, index_col = 0)
             if len(curr) == 0 or curr.empty:
-                frame.to_csv(self.storage, index=False)
+                frame.to_csv(self.storage)
                 return
             curr = pd.concat([curr, frame])
             with self.lock:
