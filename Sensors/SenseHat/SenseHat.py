@@ -1,8 +1,6 @@
 from sense_hat import SenseHat
 from datetime import datetime
 
-
-
 class CSenseHat:
     def __init__(self):
         self.hat = SenseHat()
