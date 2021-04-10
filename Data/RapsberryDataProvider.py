@@ -32,12 +32,6 @@ class SenseHatDataProvider:
         """
         self.__run_sense_hat_storage()
 
-    def invoke_hot_event(self, symbol, event_type):
-        """
-        Entry point for hot event execution
-        """
-        self.hot_events[(event_type, symbol)].set()
-
     def get_temperature(self):
         """
         :return klines for given pair, or for every pair when pair is not specified
