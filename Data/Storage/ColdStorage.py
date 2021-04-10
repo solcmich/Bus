@@ -37,7 +37,7 @@ class ColdStorage(threading.Thread):
                 frame.to_csv(self.storage)
                 return
             else:
-                curr = pd.read_csv(self.storage, index_col=sync_col)
+                curr = pd.read_csv(self.storage)
             if len(curr) == 0 or curr.empty:
                 frame.to_csv(self.storage)
                 return
