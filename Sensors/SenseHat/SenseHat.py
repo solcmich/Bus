@@ -8,8 +8,8 @@ class CSenseHat:
 
     def _get(self, f):
         ret = pd.DataFrame()
-        ret.date = [datetime.now()]
-        ret.Value = [f()]
+        ret['date'] = [datetime.now()]
+        ret['Value'] = [f()]
         return ret
 
     def get_temperature(self):
