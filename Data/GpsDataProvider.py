@@ -74,11 +74,11 @@ class GpsDataProvider(threading.Thread):
             i += 1
             if i % 10 == 1:
                 print('Got data from GPS')
-            ret = pd.DataFrame()
-            ret['Date'] = [datetime.timestamp(datetime.now())]
-            ret['latitude'] = [self.gps.latitude]
-            ret['longtitude'] = [self.gps.longitude]
-            s_loc.append(ret)
+                ret = pd.DataFrame()
+                ret['Date'] = [datetime.timestamp(datetime.now())]
+                ret['latitude'] = [self.gps.latitude]
+                ret['longtitude'] = [self.gps.longitude]
+                s_loc.append(ret)
             time.sleep(1)
 
 
