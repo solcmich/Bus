@@ -41,8 +41,6 @@ class ColdStorage(threading.Thread):
             if len(curr) == 0 or curr.empty:
                 frame.to_csv(self.storage)
                 return
-            mask = frame.index > curr.index[len(curr) - 1]
-            frame = frame[mask]
             curr = pd.concat([curr, frame])
             with self.lock:
                 curr.to_csv(self.storage)

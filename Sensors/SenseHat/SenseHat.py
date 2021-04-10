@@ -2,6 +2,7 @@ from sense_hat import SenseHat
 from datetime import datetime
 import pandas as pd
 
+
 class CSenseHat:
     def __init__(self):
         self.hat = SenseHat()
@@ -9,7 +10,6 @@ class CSenseHat:
     def _get(self, f):
         ret = pd.DataFrame()
         ret['Date'] = [datetime.timestamp(datetime.now())]
-        ret.index = ret.Date
         ret['Value'] = [f()]
         return ret
 
