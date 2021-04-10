@@ -2,8 +2,8 @@ from Data.SenseHatDataProvider import SenseHatDataProvider
 from Data.GpsDataProvider import GpsDataProvider
 if __name__ == '__main__':
     sense = SenseHatDataProvider('.')
-    sense.run()
+    sense.start()
     gps = GpsDataProvider('.')
-    gps.run()
+    gps.start()
 
 
