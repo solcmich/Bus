@@ -8,7 +8,8 @@ class CSenseHat:
 
     def _get(self, f):
         ret = pd.DataFrame()
-        ret.index = [datetime.timestamp(datetime.now())]
+        ret['Date'] = [datetime.timestamp(datetime.now())]
+        ret.index = ret.Date
         ret['Value'] = [f()]
         return ret
 
